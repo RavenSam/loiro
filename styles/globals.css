@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn-primary {
-   @apply rounded-full px-8;
+body {
+   font-family: "Lato", sans-serif !important;
 }

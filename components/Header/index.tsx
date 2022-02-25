@@ -1,57 +1,69 @@
-import React, { FC } from "react"
-import { HiMenuAlt3, HiSearch } from "react-icons/hi"
-import MenuMD from "./MenuMD"
-import MenuSM from "./MenuSM"
+import Link from "next/link"
+import useScrolled from "hooks/useScrolled"
+import { BiUser, BiCart, BiHeart, BiSearchAlt2 } from "react-icons/bi"
+import MenuDrawer from "./MenuDrawer"
+import SearchModal from "./SearchModal"
 
-const navLists = [
-   { name: "item", href: "#!", children: [] },
-   { name: "item", href: "#!", children: [] },
-   {
-      name: "item",
-      href: "#!",
-      children: [
-         { name: "item", href: "#!", children: [] },
-         { name: "item", href: "#!", children: [] },
-      ],
-   },
-   { name: "item", href: "#!", children: [] },
+const navLinks = [
+   { label: "Home", path: "/" },
+   { label: "Shop", path: "/" },
+   { label: "About", path: "/" },
+   { label: "Contact", path: "/" },
 ]
 
-const Header: FC = () => {
+const navBtns = [
+   // { label: "Search", path: "/", icon: BiSearchAlt2 },
+   { label: "About", path: "/", icon: BiUser },
+   { label: "Contact", path: "/", icon: BiHeart },
+   { label: "Contact", path: "/", icon: BiCart },
+]
+
+export default function Header(): JSX.Element {
+   const scrolled = useScrolled()
+
    return (
       <>
-         <div className="rounded-lg shadow  drawer h-screen">
-            <input id="drawer" type="checkbox" className="drawer-toggle" />
-            <div className="flex flex-col drawer-content">
-               <div className="w-full navbar md:justify-between shadow">
-                  <div className="px-2 mx-2 flex-1 md:flex-none">
-                     <span className="text-2xl font-extrabold">Logo</span>
-                  </div>
+         <header
+            className={`${
+               scrolled ? "fixed bg-white h-16 shadow" : "absolute h-20 bg-transparent"
+            } w-full top-0 left-0  transition-all duration-500 ease`}
+         >
+            <div className=" w-full h-full  max-w-6xl mx-auto px-4 flex items-center justify-between">
+               <div className="logo text-2xl font-extrabold uppercase tracking-widest">
+                  <Link href="/">
+                     <a>Loiro</a>
+                  </Link>
+               </div>
 
-                  <MenuMD navLists={navLists} />
+               <div className="hidden md:flex items-center justify-center space-x-2">
+                  {navLinks.map((item, i) => (
+                     <Link key={i} href={item.path}>
+                        <a className="px-4 py-2 font-semibold hover:text-violet-500 active:text-violet-800">
+                           {item.label}
+                        </a>
+                     </Link>
+                  ))}
+               </div>
 
-                  <div className="space-x-2">
-                     <button className=" btn btn-ghost">
-                        <HiSearch size={25} />
+               <div className="hidden md:flex items-center justify-center space-x-1">
+                  <SearchModal />
+
+                  {navBtns.map((item, i) => (
+                     <button
+                        key={i}
+                        aria-label={item.label}
+                        className="hover:text-violet-500 p-2 active:text-violet-800"
+                     >
+                        <item.icon size={25} />
                      </button>
+                  ))}
+               </div>
 
-                     <div className="hidden md:block space-x-2">
-                        <button className="btn btn-primary">Login</button>
-                     </div>
-                  </div>
-
-                  <div className="flex-none md:hidden">
-                     <label htmlFor="drawer" className="btn btn-square btn-ghost">
-                        <HiMenuAlt3 size={25} />
-                     </label>
-                  </div>
+               <div className="md:hidden">
+                  <MenuDrawer />
                </div>
             </div>
-
-            <MenuSM navLists={navLists} />
-         </div>
+         </header>
       </>
    )
 }
-
-export default Header
