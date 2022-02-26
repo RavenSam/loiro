@@ -7,7 +7,7 @@ export default function Layout({ children }: PropsWithChildren<{}>): JSX.Element
       <>
          <Header />
 
-         <div className="bg-gray-200  pt-20">{children}</div>
+         <div className="bg-gray-100  py-20">{children}</div>
 
          <Footer />
       </>

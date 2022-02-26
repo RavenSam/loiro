@@ -10,10 +10,24 @@ const Button: ComponentStyleConfig = {
 
    baseStyle: {
       _focus: {
-         boxShadow: `0 0 1px 2px ${primaryColor}`,
+         boxShadow: `none`,
+      },
+      _focusVisible: {
+         outline: `2px solid ${primaryColor}`,
+         outlineOffset: "3px",
       },
       _active: {
-         boxShadow: `0 0 1px 2px ${primaryColor}`,
+         boxShadow: `none`,
+         transform: `scale(0.9)`,
+      },
+   },
+
+   variants: {
+      solid: {
+         background: primaryColor,
+         color: "white",
+         borderRadius: "25px",
+         padding: ".8rem 1.5rem",
       },
    },
 }

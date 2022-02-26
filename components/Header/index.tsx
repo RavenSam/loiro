@@ -12,7 +12,6 @@ const navLinks = [
 ]
 
 const navBtns = [
-   // { label: "Search", path: "/", icon: BiSearchAlt2 },
    { label: "About", path: "/", icon: BiUser },
    { label: "Contact", path: "/", icon: BiHeart },
    { label: "Contact", path: "/", icon: BiCart },
@@ -26,9 +25,9 @@ export default function Header(): JSX.Element {
          <header
             className={`${
                scrolled ? "fixed bg-white h-16 shadow" : "absolute h-20 bg-transparent"
-            } w-full top-0 left-0  transition-all duration-500 ease`}
+            } w-full top-0 left-0  transition-all duration-500 ease z-50`}
          >
-            <div className=" w-full h-full  max-w-6xl mx-auto px-4 flex items-center justify-between">
+            <div className=" w-full h-full  max-w-7xl mx-auto px-4 flex items-center justify-between">
                <div className="logo text-2xl font-extrabold uppercase tracking-widest">
                   <Link href="/">
                      <a>Loiro</a>
@@ -60,7 +59,7 @@ export default function Header(): JSX.Element {
                </div>
 
                <div className="md:hidden">
-                  <MenuDrawer />
+                  <MenuDrawer navLinks={navLinks} />
                </div>
             </div>
          </header>

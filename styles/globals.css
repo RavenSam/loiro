@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer components{
+    .btn-ghost{
+      @apply flex items-center gap-2 rounded-md hover:bg-slate-100 py-3 px-5 w-full
+   }
+}
+
+
 body {
    font-family: "Lato", sans-serif !important;
 }
