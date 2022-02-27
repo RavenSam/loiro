@@ -1,7 +1,13 @@
-import { Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
+import { Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
+import { Key, PropsWithChildren } from "react"
 import { BiMenuAltRight } from "react-icons/bi"
+import { LinkTypes } from "types"
 
-export default function MenuDrawer({ navLinks }): JSX.Element {
+interface DrawerProps {
+   navLinks: LinkTypes[]
+}
+
+export default function MenuDrawer({ navLinks }: PropsWithChildren<DrawerProps>): JSX.Element {
    const { isOpen, onOpen, onClose } = useDisclosure()
 
    return (
@@ -17,9 +23,11 @@ export default function MenuDrawer({ navLinks }): JSX.Element {
                <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader>
 
                <DrawerBody>
-                  <button className="btn-ghost">
-                     Button
-                  </button>
+                  {navLinks.map((item, i: Key) => (
+                     <button key={i} className="btn-ghost w-full">
+                        {item.label}
+                     </button>
+                  ))}
                </DrawerBody>
             </DrawerContent>
          </Drawer>

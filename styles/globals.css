@@ -2,14 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+   .btn-ghost {
+      @apply flex items-center gap-2 rounded-md font-semibold tracking-wider hover:bg-gray-200 py-3 px-5;
+   }
 
-@layer components{
-    .btn-ghost{
-      @apply flex items-center gap-2 rounded-md hover:bg-slate-100 py-3 px-5 w-full
+   .btn-primary {
+      @apply flex items-center gap-2 px-8 py-3 font-semibold tracking-wider bg-violet-500 text-white border border-violet-500 rounded-full;
    }
 }
 
-
-body {
+body,
+button {
    font-family: "Lato", sans-serif !important;
 }
