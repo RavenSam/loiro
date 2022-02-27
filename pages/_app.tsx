@@ -4,6 +4,7 @@ import Layout from "@components/layouts"
 
 // Styles
 import "swiper/swiper.min.css"
+import "swiper/swiper-bundle.min.css"
 import "@styles/globals.css"
 import theme from "Theme"
 

@@ -1,40 +1,45 @@
 import Image from "next/image"
-import SwiperCore, { Autoplay } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
 import { MovieItemTypes } from "types"
+
+import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
+
+import img_1 from "public/assets/img-1.jpeg"
+import img_2 from "public/assets/img-2.jpeg"
+import img_3 from "public/assets/img-3.jpeg"
 
 const movieItems: MovieItemTypes[] = [
    {
       title: "Slide 1",
       description:
          " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos necessitatibus magnam ea quaerat dicta iste alias qui voluptatibus vero delectus.",
-      image: "/assets/img-1.jpg",
+      image: img_1,
    },
    {
       title: "Slide 2",
       description:
          " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos necessitatibus magnam ea quaerat dicta iste alias qui voluptatibus vero delectus.",
-      image: "/assets/img-2.jpg",
+      image: img_2,
    },
    {
       title: "Slide 3",
       description:
          " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos necessitatibus magnam ea quaerat dicta iste alias qui voluptatibus vero delectus.",
-      image: "/assets/img-3.jpg",
+      image: img_3,
    },
 ]
 
 export default function HeroSlide() {
-   SwiperCore.use([Autoplay])
+   SwiperCore.use([Autoplay, Navigation, Pagination])
 
    return (
-      <>
-         <Swiper grabCursor={true} spaceBetween={0} slidesPerView={1} autoplay={{ delay: 8000 }}>
+      <div className="heroSlide">
+         <Swiper navigation={true} pagination={true} spaceBetween={0} slidesPerView={1} autoplay={{ delay: 6000 }}>
             {movieItems.map((item, i) => (
                <SwiperSlide key={i}>{({ isActive }) => <HeroSlideItem item={item} isActive={isActive} />}</SwiperSlide>
             ))}
          </Swiper>
-      </>
+      </div>
    )
 }
 
@@ -45,19 +50,21 @@ interface ItemProps {
 
 const HeroSlideItem = ({ item, isActive }: ItemProps) => {
    return (
-      <div className="group  relative h-[90vh] ">
+      <div className="relative h-[60vh] sm:h-[75vh] lg:h-[90vh] ">
          <div
-            className={`relative w-full h-full scale-75 transform transition duration-1000 ${isActive && "scale-110 "}`}
+            className={`relative w-full h-full md:scale-50 md:transform transition duration-700 md:duration-1000 ${
+               isActive && "md:scale-100 "
+            }`}
          >
-            <Image src={item.image} alt={item.title} layout="fill" objectFit="cover" quality={100} />
+            <Image src={item.image} alt={item.title} layout="fill" objectFit="cover" quality={100} placeholder="blur" />
             <div className="absolute inset-0 bg-black bg-opacity-50" />
          </div>
 
          <div className="absolute inset-0 text-white">
             <div className="w-full h-full flex items-center max-w-4xl mx-auto px-4">
-               <div className={`max-w-md space-y-6 `}>
+               <div className={`md:max-w-md  space-y-6 text-center md:text-left px-10`}>
                   <h2
-                     className={`text-5xl font-black opacity-0 transition duration-1000 transform translate-y-10 ${
+                     className={`text-5xl font-black opacity-0 transition duration-700 md:duration-1000 transform translate-y-10 ${
                         isActive && "opacity-100 translate-y-0 delay-500"
                      }`}
                   >
@@ -65,7 +72,7 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
                   </h2>
 
                   <p
-                     className={`opacity-0 transition duration-1000 transform translate-y-10 ${
+                     className={`opacity-0 transition duration-700 md:duration-1000 transform translate-y-10 ${
                         isActive && "opacity-100 translate-y-0 delay-700"
                      }`}
                   >
@@ -73,11 +80,11 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
                   </p>
 
                   <div
-                     className={`opacity-0 transition duration-1000 transform translate-y-10 ${
+                     className={`opacity-0 transition duration-700 md:duration-1000 transform translate-y-10 ${
                         isActive && "opacity-100 translate-y-0 delay-1000"
                      }`}
                   >
-                     <button className="btn-primary">Shop Now</button>
+                     <button className="btn-primary mx-auto md:mx-0">Shop Now</button>
                   </div>
                </div>
             </div>

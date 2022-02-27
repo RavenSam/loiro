@@ -10,5 +10,5 @@ export type LinkTypes = {
 export type MovieItemTypes = {
    title: string
    description: string
-   image: string
+   image: string | StaticImageData
 }

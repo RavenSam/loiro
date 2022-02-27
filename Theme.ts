@@ -14,7 +14,7 @@ const Button: ComponentStyleConfig = {
       },
       _focusVisible: {
          outline: `2px solid ${primaryColor}`,
-         outlineOffset: "3px",
+         outlineOffset: "4px",
       },
       _active: {
          boxShadow: `none`,

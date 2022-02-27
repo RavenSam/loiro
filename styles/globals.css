@@ -3,16 +3,46 @@
 @tailwind utilities;
 
 @layer components {
+   .foc {
+      @apply outline outline-2 outline-violet-500 outline-offset-4;
+   }
+
    .btn-ghost {
       @apply flex items-center gap-2 rounded-md font-semibold tracking-wider hover:bg-gray-200 py-3 px-5;
    }
 
    .btn-primary {
-      @apply flex items-center gap-2 px-8 py-3 font-semibold tracking-wider bg-violet-500 text-white border border-violet-500 rounded-full;
+      @apply flex items-center gap-2 text-sm md:text-base px-8 py-2 md:px-8 md:py-3 font-semibold md:tracking-wider bg-violet-700 text-white border border-violet-700 rounded-full hover:bg-violet-900 hover:border-violet-900 transition duration-200 active:scale-90 focus:foc;
    }
 }
 
 body,
 button {
    font-family: "Lato", sans-serif !important;
+}
+
+a:focus-visible,
+button:focus-visible {
+   outline: 2px solid #8b5cf6;
+   outlineoffset: 4px;
+   border-radius: 5px;
+}
+
+.heroSlide .swiper-button-next,
+.heroSlide .swiper-button-prev {
+   color: #fff;
+}
+.heroSlide .swiper-button-next::after,
+.heroSlide .swiper-button-prev::after {
+   font-size: 30px !important;
+}
+
+.heroSlide .swiper-pagination-bullet {
+   background-color: #fff;
+   transition: all 0.5s ease;
+}
+
+.heroSlide .swiper-pagination-bullet.swiper-pagination-bullet-active {
+   width: 20px;
+   border-radius: 25px;
 }
