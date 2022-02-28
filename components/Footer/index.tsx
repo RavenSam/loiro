@@ -19,7 +19,7 @@ import { LinkTypes } from "types"
 
 const Footer = () => (
    <footer className="w-full ">
-      <div className="py-20 px-4 bg-gray-900 text-white">
+      <div className="py-20 px-4 bg-[#0f121b] text-white">
          <div className=" w-full h-full  max-w-6xl mx-auto flex  justify-between flex-wrap gap-6 gap-y-10">
             <div className="space-y-4">
                <div className="logo text-3xl font-extrabold uppercase tracking-widest">
@@ -96,14 +96,16 @@ const Footer = () => (
          </div>
       </div>
 
-      <div className="bg-[#000] text-white flex items-center justify-between flex-wrap gap-4 py-8 px-4">
-         <p>Copyright © 2022 Loiro all rights reserved. </p>
-         <div className="flex items-center  gap-2">
-            <FaCcStripe size={30} />
-            <FaCcPaypal size={30} />
-            <FaCcVisa size={30} />
-            <FaCcMastercard size={30} />
-            <FaCcApplePay size={30} />
+      <div className="bg-[#000] text-white">
+         <div className="max-w-7xl mx-auto  flex items-center justify-between flex-wrap gap-4 py-8 px-4">
+            <p>Copyright © 2022 Loiro all rights reserved. </p>
+            <div className="flex items-center  gap-2">
+               <FaCcStripe size={30} />
+               <FaCcPaypal size={30} />
+               <FaCcVisa size={30} />
+               <FaCcMastercard size={30} />
+               <FaCcApplePay size={30} />
+            </div>
          </div>
       </div>
    </footer>

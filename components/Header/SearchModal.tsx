@@ -1,5 +1,7 @@
 import {
    Input,
+   InputGroup,
+   InputRightElement,
    Modal,
    ModalBody,
    ModalCloseButton,
@@ -8,7 +10,7 @@ import {
    ModalOverlay,
    useDisclosure,
 } from "@chakra-ui/react"
-import { BiSearchAlt2 } from "react-icons/bi"
+import { BiSearch, BiSearchAlt2 } from "react-icons/bi"
 
 export default function SearchModal(): JSX.Element {
    const { isOpen, onOpen, onClose } = useDisclosure()
@@ -28,7 +30,15 @@ export default function SearchModal(): JSX.Element {
                <ModalCloseButton />
 
                <ModalBody paddingY={5}>
-                  <Input colorScheme="purple" autoFocus={true} variant="outline" placeholder="search a product" />
+                  <InputGroup size="md">
+                     <Input autoFocus={true} variant="outline" placeholder="search a product" />
+
+                     <InputRightElement>
+                        <button className="h-full px-3 text-violet-500" aria-label="menu button">
+                           <BiSearch size={20} />
+                        </button>
+                     </InputRightElement>
+                  </InputGroup>
                </ModalBody>
             </ModalContent>
          </Modal>

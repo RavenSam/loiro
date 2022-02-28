@@ -10,19 +10,19 @@ import img_3 from "public/assets/img-3.jpeg"
 
 const movieItems: MovieItemTypes[] = [
    {
-      title: "Slide 1",
+      title: "Big discount up to 50%",
       description:
          " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos necessitatibus magnam ea quaerat dicta iste alias qui voluptatibus vero delectus.",
       image: img_1,
    },
    {
-      title: "Slide 2",
+      title: "New arrivals collection",
       description:
          " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos necessitatibus magnam ea quaerat dicta iste alias qui voluptatibus vero delectus.",
       image: img_2,
    },
    {
-      title: "Slide 3",
+      title: "Hot trending",
       description:
          " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos necessitatibus magnam ea quaerat dicta iste alias qui voluptatibus vero delectus.",
       image: img_3,
@@ -61,10 +61,10 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
          </div>
 
          <div className="absolute inset-0 text-white">
-            <div className="w-full h-full flex items-center max-w-4xl mx-auto px-4">
-               <div className={`md:max-w-md  space-y-6 text-center md:text-left px-10`}>
+            <div className="w-full h-full flex items-center max-w-5xl mx-auto px-4">
+               <div className={`md:max-w-md  space-y-6 text-center md:text-left px-10 md:px-0`}>
                   <h2
-                     className={`text-5xl font-black opacity-0 transition duration-700 md:duration-1000 transform translate-y-10 ${
+                     className={`text-3xl sm:text-4xl md:text-5xl uppercase font-black opacity-0 transition duration-700 md:duration-1000 translate-y-10 md:translate-y-20 ${
                         isActive && "opacity-100 translate-y-0 delay-500"
                      }`}
                   >
@@ -72,7 +72,7 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
                   </h2>
 
                   <p
-                     className={`opacity-0 transition duration-700 md:duration-1000 transform translate-y-10 ${
+                     className={`opacity-0 transition duration-700 md:duration-1000 translate-y-10 md:translate-y-20 ${
                         isActive && "opacity-100 translate-y-0 delay-700"
                      }`}
                   >
@@ -80,7 +80,7 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
                   </p>
 
                   <div
-                     className={`opacity-0 transition duration-700 md:duration-1000 transform translate-y-10 ${
+                     className={`opacity-0 transition duration-700 md:duration-1000 translate-y-10 md:translate-y-20 ${
                         isActive && "opacity-100 translate-y-0 delay-1000"
                      }`}
                   >

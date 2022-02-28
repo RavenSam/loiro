@@ -1,6 +1,17 @@
-import { Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
+import {
+   Drawer,
+   DrawerBody,
+   DrawerCloseButton,
+   DrawerContent,
+   DrawerHeader,
+   DrawerOverlay,
+   Input,
+   InputGroup,
+   InputRightElement,
+   useDisclosure,
+} from "@chakra-ui/react"
 import { Key, PropsWithChildren } from "react"
-import { BiMenuAltRight } from "react-icons/bi"
+import { BiMenuAltRight, BiSearch } from "react-icons/bi"
 import { LinkTypes } from "types"
 
 interface DrawerProps {
@@ -20,14 +31,28 @@ export default function MenuDrawer({ navLinks }: PropsWithChildren<DrawerProps>)
             <DrawerOverlay />
 
             <DrawerContent>
-               <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader>
+               <DrawerCloseButton />
+
+               <DrawerHeader minH="10"></DrawerHeader>
 
                <DrawerBody>
-                  {navLinks.map((item, i: Key) => (
-                     <button key={i} className="btn-ghost w-full">
-                        {item.label}
-                     </button>
-                  ))}
+                  <InputGroup size="md">
+                     <Input variant="outline" placeholder="search a product" />
+
+                     <InputRightElement overflow="hidden">
+                        <button className="h-full px-3 text-violet-500" aria-label="menu button">
+                           <BiSearch size={20} />
+                        </button>
+                     </InputRightElement>
+                  </InputGroup>
+
+                  <div className="py-5">
+                     {navLinks.map((item, i: Key) => (
+                        <button key={i} className="btn-ghost w-full">
+                           {item.label}
+                        </button>
+                     ))}
+                  </div>
                </DrawerBody>
             </DrawerContent>
          </Drawer>

@@ -12,3 +12,9 @@ export type MovieItemTypes = {
    description: string
    image: string | StaticImageData
 }
+
+export type CollectionTypes = {
+   name: string
+   image: string
+   path: string
+}

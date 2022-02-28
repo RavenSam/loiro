@@ -26,7 +26,7 @@ export default function Header(): JSX.Element {
       <>
          <header
             className={`${
-               scrolled ? "fixed bg-white text-black h-16 shadow" : "absolute h-20 bg-transparent text-gray-100"
+               scrolled ? "fixed bg-white text-gray-700 h-16 shadow" : "absolute h-20 bg-transparent text-gray-100"
             } w-full top-0 left-0  transition-all duration-500 ease z-50`}
          >
             <div className=" w-full h-full  max-w-7xl mx-auto px-4 flex items-center justify-between">

@@ -1,5 +1,6 @@
 import { Button } from "@chakra-ui/react"
-import HeroSlide from "@components/HeroSlide"
+import Collection from "@components/sections/Collection"
+import HeroSlide from "@components/sections/HeroSlide"
 import type { NextPage } from "next"
 import Head from "next/head"
 
@@ -15,92 +16,9 @@ const Home: NextPage = () => {
             <HeroSlide />
          </section>
 
-         <div className="max-w-4xl mx-auto min-h-screen py-10 px-4">
-            <div className="flex items-center justify-between">
-               <h1 className="font-extrabold text-5xl mb-10">Welcome</h1>
-               <Button variant="solid">Click</Button>
-            </div>
-            <p className="text-lg py-4">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-            </p>
-            <p className="text-lg py-4">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-            </p>
-            <p className="text-lg py-4">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-            </p>
-            <p className="text-lg py-4">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-            </p>
-            <p className="text-lg py-4">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-            </p>
-            <p className="text-lg py-4">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-            </p>
-            <p className="text-lg py-4">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-            </p>
-            <p className="text-lg py-4">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-            </p>
-            <p className="text-lg py-4">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-            </p>
-            <p className="text-lg py-4">
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minima aliquid ad impedit. Hic optio
-               sit itaque sapiente neque, quod labore, magni ex, debitis aut assumenda. Asperiores quam quasi minima.
-            </p>
-         </div>
+         <section className="mt-20">
+            <Collection />
+         </section>
       </>
    )
 }
