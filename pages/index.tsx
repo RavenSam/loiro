@@ -1,5 +1,5 @@
-import { Button } from "@chakra-ui/react"
 import Collection from "@components/sections/Collection"
+import FilterGallery from "@components/sections/FilterGallery"
 import HeroSlide from "@components/sections/HeroSlide"
 import type { NextPage } from "next"
 import Head from "next/head"
@@ -19,6 +19,10 @@ const Home: NextPage = () => {
          <section className="mt-20">
             <Collection />
          </section>
+
+         {/* <section className="mt-20">
+            <FilterGallery />
+         </section> */}
       </>
    )
 }

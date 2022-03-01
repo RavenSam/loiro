@@ -5,6 +5,7 @@ export type LinkTypes = {
    label: string
    path: string
    icon?: IconType
+   color?: string
 }
 
 export type MovieItemTypes = {

@@ -64,7 +64,7 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
             <div className="w-full h-full flex items-center max-w-5xl mx-auto px-4">
                <div className={`md:max-w-md  space-y-6 text-center md:text-left px-10 md:px-0`}>
                   <h2
-                     className={`text-3xl sm:text-4xl md:text-5xl uppercase font-black opacity-0 transition duration-700 md:duration-1000 translate-y-10 md:translate-y-20 ${
+                     className={`text-3xl sm:text-4xl md:text-5xl uppercase font-black opacity-0 transition duration-700 md:duration-1000 translate-y-12 ${
                         isActive && "opacity-100 translate-y-0 delay-500"
                      }`}
                   >
@@ -72,7 +72,7 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
                   </h2>
 
                   <p
-                     className={`opacity-0 transition duration-700 md:duration-1000 translate-y-10 md:translate-y-20 ${
+                     className={`opacity-0 transition duration-700 md:duration-1000 translate-y-12 ${
                         isActive && "opacity-100 translate-y-0 delay-700"
                      }`}
                   >
@@ -80,7 +80,7 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
                   </p>
 
                   <div
-                     className={`opacity-0 transition duration-700 md:duration-1000 translate-y-10 md:translate-y-20 ${
+                     className={`opacity-0 transition duration-700 md:duration-1000 translate-y-12 ${
                         isActive && "opacity-100 translate-y-0 delay-1000"
                      }`}
                   >

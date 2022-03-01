@@ -3,9 +3,9 @@ import React, { Key } from "react"
 import { CollectionTypes } from "types"
 
 const collectionData: CollectionTypes[] = [
-   { name: "trending", image: "/assets/img-1.jpeg", path: "/" },
-   { name: "trending", image: "/assets/img-1.jpeg", path: "/" },
-   { name: "trending", image: "/assets/img-1.jpeg", path: "/" },
+   { name: "Men", image: "/assets/img-1.jpeg", path: "/" },
+   { name: "Women", image: "/assets/img-1.jpeg", path: "/" },
+   { name: "Accessories", image: "/assets/img-1.jpeg", path: "/" },
 ]
 
 export default function Collection(): JSX.Element {
