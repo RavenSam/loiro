@@ -10,9 +10,9 @@ export default function FilterGallery() {
    const [filtered, setFiltered] = useState([])
    const [active, setActive] = useState(0)
 
-   useEffect(() => {
-      fecthData()
-   }, [])
+   // useEffect(() => {
+   //    fecthData()
+   // }, [])
 
    const fecthData = async () => {
       const res = await fetch(api_url)
@@ -25,13 +25,13 @@ export default function FilterGallery() {
       <div className="max-w-5xl mx-auto px-4">
          <Filter items={items} setFiltered={setFiltered} active={active} setActive={setActive} />
 
-         <motion.div layout className="popular-movies grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
+         {/* <motion.div layout className="popular-movies grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
             <AnimatePresence>
                {filtered.map((item, i) => (
                   <Item key={item.id} item={item} />
                ))}
             </AnimatePresence>
-         </motion.div>
+         </motion.div> */}
       </div>
    )
 }
