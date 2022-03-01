@@ -11,7 +11,7 @@ const socialIcons: LinkTypes[] = [
 
 export default function Social() {
    return (
-      <div className="fixed z-20 left-0 top-1/2  -translate-y-1/2">
+      <div className="fixed z-20 left-0 top-1/2  -translate-y-1/2 hidden md:block">
          <div className="flex flex-col items-center justify-center ">
             {socialIcons.map((item) => {
                let Icon = item.icon as React.ElementType

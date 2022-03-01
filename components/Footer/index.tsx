@@ -19,7 +19,7 @@ import { LinkTypes } from "types"
 
 const Footer = () => (
    <footer className="w-full ">
-      <div className="py-20 px-4 bg-[#0f121b] text-white">
+      <div className="py-20 px-4 bg-[#07080c] text-white">
          <div className=" w-full h-full  max-w-6xl mx-auto flex  justify-between flex-wrap gap-6 gap-y-10">
             <div className="space-y-4">
                <div className="logo text-3xl font-extrabold uppercase tracking-widest">
