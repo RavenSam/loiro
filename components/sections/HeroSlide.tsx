@@ -34,7 +34,14 @@ export default function HeroSlide() {
 
    return (
       <div className="heroSlide">
-         <Swiper navigation={true} pagination={true} spaceBetween={0} slidesPerView={1} autoplay={{ delay: 6000 }}>
+         <Swiper
+            navigation={true}
+            speed={500}
+            pagination={true}
+            spaceBetween={0}
+            slidesPerView={1}
+            autoplay={{ delay: 10000 }}
+         >
             {movieItems.map((item, i) => (
                <SwiperSlide key={i}>{({ isActive }) => <HeroSlideItem item={item} isActive={isActive} />}</SwiperSlide>
             ))}
@@ -50,7 +57,7 @@ interface ItemProps {
 
 const HeroSlideItem = ({ item, isActive }: ItemProps) => {
    return (
-      <div className="relative h-[60vh] sm:h-[75vh] lg:h-[90vh] ">
+      <div className="relative h-[60vh] sm:h-[75vh] lg:h-[90vh] shadow-xl">
          <div
             className={`relative w-full h-full md:scale-50 md:transform transition duration-700 md:duration-1000 ${
                isActive && "md:scale-100 "
@@ -64,7 +71,7 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
             <div className="w-full h-full flex items-center max-w-5xl mx-auto px-4">
                <div className={`md:max-w-md  space-y-6 text-center md:text-left px-10 md:px-0`}>
                   <h2
-                     className={`text-3xl sm:text-4xl md:text-5xl uppercase font-black opacity-0 transition duration-700 md:duration-1000 translate-y-12 ${
+                     className={`text-3xl sm:text-4xl md:text-5xl uppercase font-extrabold opacity-0 transition duration-700 md:duration-1000 translate-y-12 ${
                         isActive && "opacity-100 translate-y-0 delay-500"
                      }`}
                   >
@@ -84,7 +91,7 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
                         isActive && "opacity-100 translate-y-0 delay-1000"
                      }`}
                   >
-                     <button className="btn-primary mx-auto md:mx-0">Shop Now</button>
+                     <button className="btn-white mx-auto md:mx-0">Shop Now</button>
                   </div>
                </div>
             </div>

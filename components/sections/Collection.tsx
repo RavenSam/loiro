@@ -32,15 +32,13 @@ export default function Collection(): JSX.Element {
                <div
                   className={`absolute inset-0 flex flex-col  justify-center md:justify-end text-center items-center text-white p-4 ${item.class}`}
                >
-                  <h3 className="text-lg md:text-xl tracking-wide uppercase md:tran-y-up">{item.name}</h3>
+                  <h2 className="text-lg md:text-xl tracking-wide uppercase font-semibold md:tran-y-up">{item.name}</h2>
 
                   <div className=" md:pop-up space-y-3">
                      <p className="md:pop-up delay-75">{item.desc}</p>
 
                      <div className="md:pop-up delay-300">
-                        <button className="font-semibold py-2 px-5 bg-white bg-opacity-20 rounded-lg hover:bg-black hover:bg-opacity-90">
-                           Explore
-                        </button>
+                        <button className="btn-glass">Explore</button>
                      </div>
                   </div>
                </div>

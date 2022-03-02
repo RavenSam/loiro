@@ -17,7 +17,7 @@ export default function SearchModal(): JSX.Element {
 
    return (
       <>
-         <button onClick={onOpen} aria-label="search" className="hover:text-violet-400 p-2 active:text-violet-800">
+         <button onClick={onOpen} aria-label="search" className="btn-menu p-2">
             <BiSearchAlt2 size={25} />
          </button>
 

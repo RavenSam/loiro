@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+   .btn {
+      @apply flex items-center gap-2 font-semibold transition duration-300 active:scale-90 active:shadow-none;
+   }
+
    .foc {
       @apply outline outline-2 outline-violet-500 outline-offset-4;
    }
@@ -12,7 +16,19 @@
    }
 
    .btn-primary {
-      @apply flex items-center gap-2 text-sm md:text-base px-6 py-2 font-semibold md:tracking-wider bg-violet-700 text-white border border-violet-700 rounded-full hover:bg-violet-900 hover:border-violet-900 transition duration-200 active:scale-90 focus:foc;
+      @apply btn text-sm md:text-base px-6 py-2  md:tracking-wider bg-violet-700 text-white border border-violet-700 rounded-full hover:bg-violet-900 hover:border-violet-900 transition duration-200 active:scale-90 focus:foc;
+   }
+
+   .btn-white {
+      @apply btn px-6 py-2 bg-white text-black shadow-lg rounded-lg  hover:bg-black hover:text-white;
+   }
+
+   .btn-glass {
+      @apply btn inline items-baseline py-2 px-6 bg-white bg-opacity-20 shadow-lg rounded-lg hover:bg-black hover:bg-opacity-90;
+   }
+
+   .btn-menu {
+      @apply px-4 py-2 font-medium opacity-80 hover:opacity-100 active:text-violet-800;
    }
 
    .fade-up {
@@ -30,7 +46,7 @@
 
 body,
 button {
-   font-family: "Lato", sans-serif !important;
+   font-family: "Poppins", sans-serif !important;
 }
 
 a:focus-visible,

@@ -1,10 +1,5 @@
 import Link from "next/link"
 import {
-   FaCcPaypal,
-   FaCcMastercard,
-   FaCcStripe,
-   FaCcVisa,
-   FaCcApplePay,
    FaMapMarkerAlt,
    FaPhoneAlt,
    FaEnvelope,
@@ -99,13 +94,8 @@ const Footer = () => (
       <div className="bg-[#000] text-white">
          <div className="max-w-7xl mx-auto  flex items-center justify-between flex-wrap gap-4 py-8 px-4">
             <p>Copyright © 2022 Loiro all rights reserved. </p>
-            <div className="flex items-center  gap-2">
-               <FaCcStripe size={30} />
-               <FaCcPaypal size={30} />
-               <FaCcVisa size={30} />
-               <FaCcMastercard size={30} />
-               <FaCcApplePay size={30} />
-            </div>
+
+            <img src="/assets/cards_pay.webp" alt="pay providers" />
          </div>
       </div>
    </footer>
