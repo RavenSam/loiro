@@ -33,7 +33,7 @@ export default function NavLink({ item }: { item: LinkTypes }) {
                                     ? "opacity-100 translate-x-0 transition ease-out duration-200 "
                                     : "opacity-0 translate-x-3 transition ease-in duration-300 "
                               }  btn-menu `}
-                              style={{ transitionDelay: menuOpen ? `${(i + 1) * 100}ms` : "0s" }}
+                              style={{ transitionDelay: menuOpen ? `${(i + 1) * 200}ms` : "0s" }}
                            >
                               {el.label}
                            </a>
