@@ -2,11 +2,11 @@ import { FaFacebookF, FaInstagram, FaPinterest, FaTwitter, FaYoutube } from "rea
 import { LinkTypes } from "types"
 
 const socialIcons: LinkTypes[] = [
-   { label: "Facebook", path: "#", icon: FaFacebookF, color: "#1877f2" },
-   { label: "Twitter", path: "#", icon: FaTwitter, color: "#1da1f2" },
-   { label: "Youtube", path: "#", icon: FaYoutube, color: "#ff0000" },
-   { label: "Instagram", path: "#", icon: FaInstagram, color: "#c32aa3" },
-   { label: "Pintrest", path: "#", icon: FaPinterest, color: "#bd081c" },
+   { label: "Facebook", path: "/", icon: FaFacebookF, color: "#1877f2" },
+   { label: "Twitter", path: "/", icon: FaTwitter, color: "#1da1f2" },
+   { label: "Youtube", path: "/", icon: FaYoutube, color: "#ff0000" },
+   { label: "Instagram", path: "/", icon: FaInstagram, color: "#c32aa3" },
+   { label: "Pintrest", path: "/", icon: FaPinterest, color: "#bd081c" },
 ]
 
 export default function Social() {
@@ -21,7 +21,7 @@ export default function Social() {
                         style={{ backgroundColor: item.color }}
                         aria-label={item.label}
                         title={item.label}
-                        className={`flex items-center justify-center w-10 h-10 rounded-lg -translate-x-full blur-md group-hover:blur-0 group-hover:translate-x-0 transition-all duration-300 animate-pulse hover:animate-none`}
+                        className={`flex items-center justify-center shadow-xl w-10 h-10 rounded-lg -translate-x-full blur-md group-hover:blur-0 group-hover:translate-x-0 transition-all duration-300 animate-pulse hover:animate-none`}
                      >
                         <Icon size={20} />
                      </button>

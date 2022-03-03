@@ -41,24 +41,11 @@ const Footer = () => (
                </div>
 
                <div className="flex items-center space-x-4 py-2">
-                  <a href="#">
-                     <FaFacebookF size={18} />
-                  </a>
-                  <a href="#">
-                     <FaTwitter size={18} />
-                  </a>
-                  <a href="#">
-                     <FaInstagram size={18} />
-                  </a>
-                  <a href="#">
-                     <FaDribbble size={18} />
-                  </a>
-                  <a href="#">
-                     <FaPinterestP size={18} />
-                  </a>
-                  <a href="#">
-                     <FaYoutube size={18} />
-                  </a>
+                  {socialIcons.map((item: any) => (
+                     <a key={item.label} href={item.label}>
+                        <item.icon size={18} />
+                     </a>
+                  ))}
                </div>
             </div>
 
@@ -100,6 +87,15 @@ const Footer = () => (
       </div>
    </footer>
 )
+
+const socialIcons: LinkTypes[] = [
+   { label: "FacebookF", path: "/", icon: FaFacebookF },
+   { label: "Twitter", path: "/", icon: FaTwitter },
+   { label: "Instagram", path: "/", icon: FaInstagram },
+   { label: "Dribbble", path: "/", icon: FaDribbble },
+   { label: "PinterestP", path: "/", icon: FaPinterestP },
+   { label: "Youtube", path: "/", icon: FaYoutube },
+]
 
 const catLinks: LinkTypes[] = [
    { label: "men", path: "/" },

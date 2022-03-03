@@ -69,26 +69,26 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
 
          <div className="absolute inset-0 text-white">
             <div className="w-full h-full flex items-center max-w-5xl mx-auto px-4">
-               <div className={`md:max-w-md  space-y-6 text-center md:text-left px-10 md:px-0`}>
+               <div className={`md:max-w-md  space-y-6 text-center md:text-left px-10 lg:px-0`}>
                   <h2
-                     className={`text-3xl sm:text-4xl md:text-5xl uppercase font-extrabold opacity-0 transition duration-700 md:duration-1000 translate-y-12 ${
-                        isActive && "opacity-100 translate-y-0 delay-500"
+                     className={`text-3xl sm:text-4xl md:text-5xl uppercase font-extrabold  transition duration-700 md:duration-1000  ${
+                        isActive ? "opacity-100 translate-y-0 delay-500" : "opacity-0 translate-y-12"
                      }`}
                   >
                      {item.title}
                   </h2>
 
                   <p
-                     className={`opacity-0 transition duration-700 md:duration-1000 translate-y-12 ${
-                        isActive && "opacity-100 translate-y-0 delay-700"
+                     className={` transition duration-700 md:duration-1000  ${
+                        isActive ? "opacity-100 translate-y-0 delay-700" : "opacity-0 translate-y-12"
                      }`}
                   >
                      {item.description}
                   </p>
 
                   <div
-                     className={`opacity-0 transition duration-700 md:duration-1000 translate-y-12 ${
-                        isActive && "opacity-100 translate-y-0 delay-1000"
+                     className={` transition duration-700 md:duration-1000  ${
+                        isActive ? "opacity-100 translate-y-0 delay-1000" : "opacity-0 translate-y-12"
                      }`}
                   >
                      <button className="btn-white mx-auto md:mx-0">Shop Now</button>

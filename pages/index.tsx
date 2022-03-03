@@ -1,6 +1,7 @@
 import Collection from "@components/sections/Collection"
 import HeroSlide from "@components/sections/HeroSlide"
 import Policy from "@components/sections/Policy"
+import ProductList from "@components/sections/ProductList"
 import type { NextPage } from "next"
 import Head from "next/head"
 
@@ -18,6 +19,10 @@ const Home: NextPage = () => {
 
          <section className="">
             <Collection />
+         </section>
+
+         <section className="mt-20">
+            <ProductList />
          </section>
 
          <section className="mt-20">
