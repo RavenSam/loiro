@@ -14,7 +14,7 @@ const Home: NextPage = () => {
             <title>Loiro | Home</title>
          </Head>
 
-         <section className="w-full">
+         <section className="w-full max-h-[680px]">
             <HeroSlide />
          </section>
 

@@ -58,7 +58,7 @@ interface ItemProps {
 
 const HeroSlideItem = ({ item, isActive }: ItemProps) => {
    return (
-      <div className="relative h-[60vh] sm:h-[75vh] lg:h-[90vh] shadow-xl">
+      <div className="relative h-[60vh] sm:h-[75vh] md:h-[90vh] lg:h-screen shadow-xl">
          <div
             className={`relative w-full h-full md:scale-50 md:transform transition duration-700 md:duration-1000 ${
                isActive && "md:scale-100 "
@@ -92,7 +92,7 @@ const HeroSlideItem = ({ item, isActive }: ItemProps) => {
                         isActive ? "opacity-100 translate-y-0 delay-1000" : "opacity-0 translate-y-12"
                      }`}
                   >
-                     <button className="btn-white mx-auto md:mx-0">Shop Now</button>
+                     <button className="btn-white text-black mx-auto md:mx-0">Shop Now</button>
                   </div>
                </div>
             </div>

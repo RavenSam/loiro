@@ -42,7 +42,7 @@ const Footer = () => (
 
                <div className="flex items-center space-x-4 py-2">
                   {socialIcons.map((item: any) => (
-                     <a key={item.label} href={item.label}>
+                     <a key={item.label} href={item.path} aria-label={item.label}>
                         <item.icon size={18} />
                      </a>
                   ))}
@@ -82,7 +82,7 @@ const Footer = () => (
          <div className="max-w-7xl mx-auto  flex items-center justify-between flex-wrap gap-4 py-8 px-4">
             <p>Copyright © 2022 Loiro all rights reserved. </p>
 
-            <img src="/assets/cards_pay.webp" alt="pay providers" />
+            <img src="/assets/cards_pay.webp" alt="pay providers" width={237} height={19} />
          </div>
       </div>
    </footer>
