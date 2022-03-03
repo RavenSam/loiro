@@ -2,8 +2,8 @@ import React, { useEffect } from "react"
 
 const btns = [
    { label: "All", value: 0 },
-   { label: "Comedy", value: 35 },
-   { label: "Action", value: 28 },
+   { label: "Men", value: "men" },
+   { label: "Women", value: "women" },
 ]
 
 export default function Filter({ items, setFiltered, active, setActive }: any) {
@@ -13,7 +13,7 @@ export default function Filter({ items, setFiltered, active, setActive }: any) {
          return
       }
 
-      const fitred = items.filter((item: any) => item.genre_ids.includes(active))
+      const fitred = items.filter((item: any) => item.category.includes(active))
 
       setFiltered(fitred)
    }, [active, items, setFiltered])
@@ -26,9 +26,9 @@ export default function Filter({ items, setFiltered, active, setActive }: any) {
                onClick={() => setActive(item.value)}
                className={`${
                   item.value === active
-                     ? "bg-violet-500 text-white  hover:bg-violet-700"
-                     : "hover:border-violet-500 hover:text-violet-500 text-gray-600"
-               } px-8 py-2 border-2 rounded-3xl font-bold `}
+                     ? "bg-black text-white  hover:opacity-80"
+                     : " text-gray-600 hover:border-black hover:text-black"
+               } px-8 py-2 border rounded-3xl font-semibold `}
             >
                {item.label}
             </button>

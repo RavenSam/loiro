@@ -28,7 +28,7 @@
    }
 
    .btn-black {
-      @apply btn px-4 py-2 bg-black text-white shadow-lg rounded-lg  hover:opacity-75;
+      @apply btn px-4 py-2 bg-black text-white shadow-lg rounded-lg  hover:!opacity-75;
    }
 
    .btn-glass {
@@ -37,6 +37,10 @@
 
    .btn-menu {
       @apply px-4 py-2 font-medium opacity-80 hover:opacity-100 active:text-violet-800;
+   }
+
+   .section-title {
+      @apply text-3xl lg:text-4xl capitalize font-bold md:tracking-wider;
    }
 
    .fade-up {
@@ -85,4 +89,37 @@ button:focus-visible {
 .heroSlide .swiper-pagination-bullet.swiper-pagination-bullet-active {
    width: 20px;
    border-radius: 25px;
+}
+
+.productList .swiper-button-next,
+.productList .swiper-button-prev {
+   color: rgb(0, 0, 0);
+   top: 12px !important;
+   padding: 0 1.3rem;
+   transition: transform 0.4s ease;
+}
+
+.productList .swiper-container {
+   padding-top: 2.5rem;
+}
+
+.productList .swiper-button-next::after,
+.productList .swiper-button-prev::after {
+   font-size: 20px !important;
+}
+
+.productList .swiper-button-next {
+   right: 30%;
+}
+
+.productList .swiper-button-next:hover {
+   transform: translateX(1rem);
+}
+
+.productList .swiper-button-prev {
+   left: 30%;
+}
+
+.productList .swiper-button-prev:hover {
+   transform: translateX(-1rem);
 }

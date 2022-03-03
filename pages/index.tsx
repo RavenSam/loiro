@@ -1,4 +1,5 @@
 import Collection from "@components/sections/Collection"
+import FilterGallery from "@components/sections/FilterGallery"
 import HeroSlide from "@components/sections/HeroSlide"
 import Policy from "@components/sections/Policy"
 import ProductList from "@components/sections/ProductList"
@@ -21,8 +22,12 @@ const Home: NextPage = () => {
             <Collection />
          </section>
 
-         <section className="mt-20">
-            <ProductList />
+         <section className="mt-28">
+            <ProductList title="New Arrivals" />
+         </section>
+
+         <section className="mt-28">
+            <FilterGallery />
          </section>
 
          <section className="mt-20">

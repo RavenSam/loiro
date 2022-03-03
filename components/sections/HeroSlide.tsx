@@ -36,8 +36,9 @@ export default function HeroSlide() {
       <div className="heroSlide">
          <Swiper
             navigation={true}
+            loop={true}
             speed={500}
-            pagination={true}
+            pagination={{ clickable: true }}
             spaceBetween={0}
             slidesPerView={1}
             autoplay={{ delay: 10000 }}
