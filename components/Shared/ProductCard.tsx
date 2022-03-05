@@ -5,7 +5,7 @@ export default function ProductCard({ item }: { item: any }) {
    return (
       <div className="relative group w-full rounded-lg overflow-hidden cursor-pointer">
          <div className="relative">
-            <figure className="group-hover:opacity-0 w-full rounded-lg overflow-hidden transition duration-700">
+            <figure className="md:group-hover:opacity-0 w-full rounded-lg overflow-hidden transition duration-700">
                <Image src={item.image[0]} alt={item.name} width={350} height={440} layout="responsive" />
             </figure>
 
@@ -43,8 +43,8 @@ export default function ProductCard({ item }: { item: any }) {
             </button>
          </div>
 
-         <div className="absolute top-0 left-0 py-2">
-            <span className="bg-pink-700 py-2 px-4 pr-6 shadow-2xl text-white uppercase text-xs font-bold tracking-widest rounded-br-full">
+         <div className="absolute top-0 left-0 py-2 px-1">
+            <span className="bg-black py-2 px-4 pr-6 shadow-2xl text-white uppercase text-xs font-bold tracking-widest rounded-lg hover:opacity-80">
                -50%
             </span>
          </div>

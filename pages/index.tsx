@@ -3,6 +3,7 @@ import FilterGallery from "@components/sections/FilterGallery"
 import HeroSlide from "@components/sections/HeroSlide"
 import Policy from "@components/sections/Policy"
 import ProductList from "@components/sections/ProductList"
+import ShopByCategory from "@components/sections/ShopByCategory"
 import type { NextPage } from "next"
 import Head from "next/head"
 
@@ -24,6 +25,10 @@ const Home: NextPage = () => {
 
          <section className="mt-28">
             <ProductList title="New Arrivals" />
+         </section>
+
+         <section className="mt-28">
+            <ShopByCategory />
          </section>
 
          <section className="mt-28">

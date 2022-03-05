@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
+import Link from "next/link"
 import ProductCard from "@components/Shared/ProductCard"
+import { useQuery } from "@apollo/client"
+import { GET_PRODUCTS } from "@lib/queries/getProducts"
 
 import SwiperCore, { Navigation } from "swiper"
 import { SwiperSlide, Swiper } from "swiper/react"
-import Link from "next/link"
 
 const products = [
    { id: 1, name: "Women T-Shirt  ", category: ["women"], image: ["/assets/p-2.png", "/assets/p-3.png"] },
@@ -17,13 +19,14 @@ const products = [
 ]
 
 export default function ProductList({ title }: { title: string }) {
-   const prevRef = useRef<HTMLDivElement>(null)
-   const nextRef = useRef<HTMLDivElement>(null)
+   const { data, error, loading } = useQuery(GET_PRODUCTS)
+
+   console.log({ data, error })
 
    SwiperCore.use([Navigation])
 
    return (
-      <div className="productList w-full max-w-6xl mx-auto px-4">
+      <div className="styledArrow ArrowTop w-full max-w-6xl mx-auto px-4">
          <div className="flex items-center justify-between mb-6">
             <h2 className="section-title">{title}</h2>
 
@@ -35,9 +38,9 @@ export default function ProductList({ title }: { title: string }) {
          <Swiper
             navigation={true}
             breakpoints={{
-               640: { slidesPerView: 2, slidesPerGroup: 2 },
-               768: { slidesPerView: 3, slidesPerGroup: 3 },
-               1024: { slidesPerView: 4, slidesPerGroup: 4 },
+               640: { slidesPerView: 2 },
+               768: { slidesPerView: 3 },
+               1024: { slidesPerView: 4 },
             }}
             spaceBetween={10}
          >

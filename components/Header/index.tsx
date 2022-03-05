@@ -13,10 +13,10 @@ const navLinks: LinkTypes[] = [
       label: "Shop",
       path: "/shop",
       children: [
-         { label: "shop 1", path: "shop" },
-         { label: "shop 2", path: "shop" },
-         { label: "shop 3", path: "shop" },
-         { label: "shop 4", path: "shop" },
+         { label: "shop 1", path: "/shop" },
+         { label: "shop 2", path: "/shop" },
+         { label: "shop 3", path: "/shop" },
+         { label: "shop 4", path: "/shop" },
       ],
    },
    { label: "About", path: "/about" },
@@ -24,9 +24,9 @@ const navLinks: LinkTypes[] = [
       label: "Contact",
       path: "/contact",
       children: [
-         { label: "contact 1", path: "shop" },
-         { label: "contact 2", path: "shop" },
-         { label: "contact 3", path: "shop" },
+         { label: "contact 1", path: "/shop" },
+         { label: "contact 2", path: "/shop" },
+         { label: "contact 3", path: "/shop" },
       ],
    },
 ]

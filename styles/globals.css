@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+   --shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 @layer components {
    .btn {
       @apply flex items-center gap-2 font-semibold transition duration-300 active:scale-90 active:shadow-none;
@@ -90,7 +94,7 @@ button:focus-visible {
    width: 20px;
    border-radius: 25px;
 }
-
+/* 
 .productList .swiper-button-next,
 .productList .swiper-button-prev {
    color: rgb(0, 0, 0);
@@ -122,4 +126,54 @@ button:focus-visible {
 
 .productList .swiper-button-prev:hover {
    transform: translateX(-1rem);
+} */
+
+/* ******************************************************** */
+
+.styledArrow .swiper-button-next,
+.styledArrow .swiper-button-prev {
+   color: rgb(0, 0, 0);
+   background: white;
+   border-radius: 100%;
+   padding: 0 1.3rem;
+   transition: transform 0.4s ease;
+   box-shadow: var(--shadow-1);
+}
+
+.styledArrow .swiper-button-next:hover,
+.styledArrow .swiper-button-prev:hover {
+   color: white;
+   background: #000;
+}
+
+.styledArrow .swiper-button-next::after,
+.styledArrow .swiper-button-prev::after {
+   font-size: 15px !important;
+}
+
+.styledArrow .swiper-button-next {
+   right: 0;
+}
+
+.styledArrow .swiper-button-prev {
+   left: 0;
+}
+
+/* ******************************************************** */
+.ArrowTop .swiper-button-next,
+.ArrowTop .swiper-button-prev {
+   top: 30px;
+   border-radius: 8px !important;
+   padding: 0 2rem !important;
+}
+
+.ArrowTop .swiper-container {
+   padding-top: 3.5rem;
+}
+
+@media (max-width: 768px) {
+   .mdArrow .swiper-button-next,
+   .mdArrow .swiper-button-prev {
+      display: none !important;
+   }
 }

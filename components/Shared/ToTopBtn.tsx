@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { HiArrowUp } from "react-icons/hi"
+import { HiChevronUp } from "react-icons/hi"
 
 export default function ToTopBtn() {
    const [visible, setVisible] = useState(false)
@@ -26,13 +26,17 @@ export default function ToTopBtn() {
       window.addEventListener("scroll", toggleVisible)
    })
    return (
-      <div style={{ display: visible ? "inline" : "none" }} className="fixed right-4 bottom-4 ">
+      <div
+         style={{ display: visible ? "inline" : "none" }}
+         className="fixed z-10 right-4 bottom-4 rounded-lg shadow-xl overflow-hidden"
+      >
          <button
-            className="w-10 h-10 flex items-center justify-center border rounded-lg shadow-xl bg-white text-gray-600 hover:bg-black hover:text-white"
+            className="w-10 h-10 flex items-center justify-center bg-white text-gray-600 hover:bg-black hover:text-white"
             onClick={scrollToTop}
             aria-label="to the top"
+            title="Go to the top"
          >
-            <HiArrowUp />
+            <HiChevronUp size={25} />
          </button>
       </div>
    )
