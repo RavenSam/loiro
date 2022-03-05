@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import ProductCard from "@components/Shared/ProductCard"
-import { useQuery } from "@apollo/client"
-import { GET_PRODUCTS } from "@lib/queries/getProducts"
 
 import SwiperCore, { Navigation } from "swiper"
 import { SwiperSlide, Swiper } from "swiper/react"
@@ -19,10 +17,6 @@ const products = [
 ]
 
 export default function ProductList({ title }: { title: string }) {
-   const { data, error, loading } = useQuery(GET_PRODUCTS)
-
-   console.log({ data, error })
-
    SwiperCore.use([Navigation])
 
    return (

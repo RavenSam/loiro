@@ -12,7 +12,7 @@ export default function Layout({ children }: PropsWithChildren<{}>): JSX.Element
 
          <Header />
 
-         <div className="">{children}</div>
+         <div className="min-h-[80vh]">{children}</div>
 
          <Footer />
       </>
