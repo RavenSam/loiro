@@ -1,9 +1,8 @@
 import { BiHistory } from "react-icons/bi"
-import { BsGem, BsTelephone } from "react-icons/bs"
-import { FaShippingFast } from "react-icons/fa"
+import { BsGem, BsTelephone, BsTruck } from "react-icons/bs"
 
 const policyItems = [
-   { title: "Free Shipping", desc: "Free shipping on all US order or order above $99", icon: FaShippingFast },
+   { title: "Free Shipping", desc: "Free shipping on all US order or order above $99", icon: BsTruck },
    { title: "Online Support 24/7", desc: "Free shipping on all US order or order above $99", icon: BsTelephone },
    { title: "7 Days Return", desc: "Free shipping on all US order or order above $99", icon: BiHistory },
    { title: "Payment Secure", desc: "Free shipping on all US order or order above $99", icon: BsGem },

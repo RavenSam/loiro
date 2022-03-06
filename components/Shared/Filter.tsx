@@ -22,7 +22,7 @@ export default function Filter({ items, setFiltered, active, setActive }: any) {
    }, [active, items, setFiltered]);
 
    return (
-      <div className="filter-container flex items-center mb-5 p-2 bg-black text-gray-300 w-fit rounded-lg">
+      <div className="filter-container flex items-center mb-5 p-2 bg-black text-gray-300 w-fit rounded-lg space-x-1">
          {btns.map((item) => (
             <div key={item.value} className="relative rounded-lg overflow-hidden">
                {item.value === active ? (

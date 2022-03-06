@@ -1,7 +1,11 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
+
+
+const link = new HttpLink({uri:process.env.NEXT_PUBLIC_WP_API})
 
 const client = new ApolloClient({
-	uri: "https://loiroo.000webhostapp.com/graphql",
+	ssrMode:typeof window === "undefined",
+	link,
 	cache: new InMemoryCache(),
 });
 

@@ -29,12 +29,12 @@ export default function SearchModal(): JSX.Element {
 
                <ModalCloseButton />
 
-               <ModalBody paddingY={5}>
+               <ModalBody paddingY={5} paddingBottom={10}>
                   <InputGroup size="md">
-                     <Input autoFocus={true} variant="outline" placeholder="search a product" />
+                     <Input autoFocus={true} variant="unstyled" placeholder="search a product" />
 
                      <InputRightElement>
-                        <button className="h-full px-3 text-violet-500" aria-label="menu button">
+                        <button className="h-full px-3 text-black" aria-label="menu button">
                            <BiSearch size={20} />
                         </button>
                      </InputRightElement>

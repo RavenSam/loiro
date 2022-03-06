@@ -1,10 +1,10 @@
-import { NextPage } from "next";
+import { NextPage ,GetStaticProps} from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import client from "@lib/config/apollo";
 import { GET_PRODUCTS } from "@lib/queries/getProducts";
 
-const Collections: NextPage<{products:[]}> = ({ products }) => {
+const Collections: NextPage<{ products: [] }> = ({ products }) => {
    console.log(products);
 
    return (
@@ -19,12 +19,12 @@ const Collections: NextPage<{products:[]}> = ({ products }) => {
    );
 };
 
-export async function getStaticProps() {
+export const getStaticProps:GetStaticProps = async ()=> {
    const res = await client.query({ query: GET_PRODUCTS });
 
    return {
       props: {
-         products:res.data.products.nodes,
+         products: res.data.products.nodes,
       },
    };
 }

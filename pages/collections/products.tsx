@@ -1,8 +1,10 @@
 import { NextPage } from "next"
 import Head from "next/head"
 import React from "react"
+import { GET_PRODUCTS } from "@lib/queries/getProducts";
 
 const Products: NextPage = () => {
+
    return (
       <>
          <Head>

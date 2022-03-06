@@ -1,11 +1,14 @@
+import type { NextPage } from "next"
+import Head from "next/head"
+
 import Collection from "@components/sections/Collection"
 import FilterGallery from "@components/sections/FilterGallery"
 import HeroSlide from "@components/sections/HeroSlide"
+import InstagramFeeds from "@components/sections/InstagramFeeds"
 import Policy from "@components/sections/Policy"
 import ProductList from "@components/sections/ProductList"
 import ShopByCategory from "@components/sections/ShopByCategory"
-import type { NextPage } from "next"
-import Head from "next/head"
+import Newsletter from "@components/Shared/Newsletter"
 
 const Home: NextPage = () => {
    return (
@@ -15,9 +18,9 @@ const Home: NextPage = () => {
             <title>Loiro | Home</title>
          </Head>
 
-         <section className="w-full max-h-[680px]">
+         {/*   <section className="w-full max-h-[680px]">
             <HeroSlide />
-         </section>
+         </section>*/}
 
          <section className="">
             <Collection />
@@ -25,6 +28,10 @@ const Home: NextPage = () => {
 
          <section className="mt-28">
             <ProductList title="New Arrivals" />
+         </section>
+
+         <section className="mt-20">
+            <Policy />
          </section>
 
          <section className="mt-28">
@@ -36,7 +43,11 @@ const Home: NextPage = () => {
          </section>
 
          <section className="mt-20">
-            <Policy />
+            <InstagramFeeds />
+         </section>
+
+         <section className="mt-20">
+            <Newsletter />
          </section>
       </>
    )
