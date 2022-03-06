@@ -5,6 +5,7 @@ import SearchBox from "@components/sections/SearchBox"
 import SearchHero from "@components/sections/SearchHero"
 import SearchFilters from "@components/sections/SearchFilters"
 import SearchResults from "@components/sections/SearchResults"
+import Breadcrumbs from "@components/Shared/Breadcrumbs"
 
 const Search: NextPage = () => {
    return (
@@ -18,14 +19,20 @@ const Search: NextPage = () => {
             <SearchHero />
          </section>
 
-         <div className="mt-20 max-w-7xl mx-auto grid grid-cols-12 gap-4">
-            <section className="col-span-3 px-4">
-               <SearchFilters />
-            </section>
+         <div className=" max-w-7xl mx-auto ">
+            <div className="px-4 py-6 md:py-10">
+               <Breadcrumbs />
+            </div>
 
-            <section className="col-span-9 px-4">
-               <SearchResults />
-            </section>
+            <div className="md:grid grid-cols-12 gap-4">
+               <section className="hidden md:block col-span-3 px-4">
+                  <SearchFilters />
+               </section>
+
+               <section className="col-span-9 px-4">
+                  <SearchResults />
+               </section>
+            </div>
          </div>
       </>
    )
