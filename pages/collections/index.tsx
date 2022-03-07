@@ -5,7 +5,7 @@ import client from "@lib/config/apollo";
 import { GET_PRODUCTS } from "@lib/queries/getProducts";
 
 const Collections: NextPage<{ products: [] }> = ({ products }) => {
-   console.log(products);
+   // console.log(products);
 
    return (
       <>
@@ -19,14 +19,14 @@ const Collections: NextPage<{ products: [] }> = ({ products }) => {
    );
 };
 
-export const getStaticProps:GetStaticProps = async ()=> {
-   const res = await client.query({ query: GET_PRODUCTS });
+// export const getStaticProps:GetStaticProps = async ()=> {
+//    const res = await client.query({ query: GET_PRODUCTS });
 
-   return {
-      props: {
-         products: res.data.products.nodes,
-      },
-   };
-}
+//    return {
+//       props: {
+//          products: res.data.products.nodes,
+//       },
+//    };
+// }
 
 export default Collections;
