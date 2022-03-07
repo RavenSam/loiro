@@ -18,9 +18,9 @@ const Home: NextPage = () => {
             <title>Loiro | Home</title>
          </Head>
 
-         {/*   <section className="w-full max-h-[680px]">
+         <section className="w-full max-h-[680px]">
             <HeroSlide />
-         </section>*/}
+         </section>
 
          <section className="">
             <Collection />
@@ -28,10 +28,6 @@ const Home: NextPage = () => {
 
          <section className="mt-28">
             <ProductList title="New Arrivals" />
-         </section>
-
-         <section className="mt-20">
-            <Policy />
          </section>
 
          <section className="mt-28">
@@ -48,6 +44,10 @@ const Home: NextPage = () => {
 
          <section className="mt-20">
             <Newsletter />
+         </section>
+
+         <section className="mt-20">
+            <Policy />
          </section>
       </>
    )

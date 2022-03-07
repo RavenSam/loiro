@@ -1,6 +1,6 @@
-import Head from "next/head";
+import Head from "next/head"
 import React, { PropsWithChildren } from "react"
-
+import NextNprogress from "nextjs-progressbar"
 
 import Footer from "@components/Footer"
 import Header from "@components/Header"
@@ -14,6 +14,7 @@ export default function Layout({ children }: PropsWithChildren<{}>): JSX.Element
             <link rel="icon" type="image/png" href="/logo.png" />
          </Head>
 
+         <NextNprogress options={{ showSpinner: false }} color="#000" />
          <Social />
          <ToTopBtn />
 
