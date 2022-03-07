@@ -13,8 +13,8 @@ export default function Policy(): JSX.Element {
       <div className="w-full bg-gray-200 px-4 py-8">
          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {policyItems.map((item) => (
-               <div key={item.title} className="group flex items-center gap-4">
-                  <item.icon size={30} className="text-gray-600 min-w-[30px]  group-hover:animate-bounce" />
+               <div key={item.title} className="group flex items-center">
+                  <item.icon size={30} className="text-gray-600 min-w-[30px]  group-hover:animate-bounce mr-4" />
 
                   <div className="space-y-2 p-4 border-l border-gray-400">
                      <h2 title={item.title} className="font-semibold">

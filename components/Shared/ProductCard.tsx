@@ -27,9 +27,9 @@ export default function ProductCard({ item }: { item: any }) {
             <button className="btn-black md:reveal-left">Add To Cart</button>
          </div>
 
-         <div className="absolute top-0 right-0 flex flex-col items-center p-2 gap-2">
+         <div className="absolute top-0 right-0 flex flex-col items-center p-2">
             <button
-               className="btn-square md:scale-50 md:opacity-0 md:group-hover:scale-100 md:group-hover:opacity-100"
+               className="btn-square md:scale-50 md:opacity-0 md:group-hover:scale-100 md:group-hover:opacity-100 mb-2"
                aria-label="whishlist"
             >
                <HiOutlineHeart size={25} />

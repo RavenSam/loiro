@@ -44,7 +44,7 @@
    }
 
    .section-title {
-      @apply text-3xl lg:text-4xl capitalize font-bold md:tracking-wider;
+      @apply text-2xl lg:text-3xl capitalize font-bold md:tracking-wider;
    }
 
    .fade-up {
