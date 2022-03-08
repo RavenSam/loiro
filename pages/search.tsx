@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from "next"
 import Head from "next/head"
 import client from "@lib/config/apollo"
-import { GET_PRODUCTS } from "@lib/queries/getProducts"
+import { GET_PRODUCTS } from "@lib/gql/queries/getProducts"
 import useWindowSize from "hooks/useWindowSize"
 
 import SearchHero from "@components/sections/SearchHero"

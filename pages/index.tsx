@@ -1,5 +1,9 @@
-import type { NextPage } from "next"
+import type { NextPage, GetStaticProps } from "next"
 import Head from "next/head"
+import client from "@lib/config/apollo"
+import { GET_PRODUCTS } from "@lib/gql/queries/getProducts"
+import { GET_CATEGORIES } from "@lib/gql/queries/getData"
+import {Category} from "types"
 
 import Collection from "@components/sections/Collection"
 import FilterGallery from "@components/sections/FilterGallery"
@@ -10,7 +14,14 @@ import ProductList from "@components/sections/ProductList"
 import ShopByCategory from "@components/sections/ShopByCategory"
 import Newsletter from "@components/Shared/Newsletter"
 
-const Home: NextPage = () => {
+interface HomeProppTypes {
+   categories:Category[]
+}
+
+const Home: NextPage<HomeProppTypes> = ({categories}) => {
+
+
+
    return (
       <>
          <Head>
@@ -31,7 +42,7 @@ const Home: NextPage = () => {
          </section>
 
          <section className="mt-28">
-            <ShopByCategory />
+            <ShopByCategory categories={categories} />
          </section>
 
          <section className="mt-28">
@@ -51,6 +62,17 @@ const Home: NextPage = () => {
          </section>
       </>
    )
+}
+
+
+export const getStaticProps:GetStaticProps = async ()=> {
+   const res = await client.query({ query: GET_CATEGORIES });
+
+   return {
+      props: {
+         categories: res.data.Categories,
+      },
+   };
 }
 
 export default Home
