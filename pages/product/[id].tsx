@@ -6,7 +6,7 @@ import { NextPage } from "next"
 import Head from "next/head"
 import { Product } from "types"
 
-const product: Product = {
+const product = {
    id: "product_id",
    name: "Product Test One",
    price: 23,
