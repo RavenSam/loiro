@@ -1,8 +1,6 @@
 import { useState } from "react"
 
-const stock = 10
-
-export default function ProductQuantity() {
+export default function ProductQuantity({ quantity = 50 }: { quantity?: number }) {
    const [qty, setQty] = useState(1)
 
    return (
@@ -20,7 +18,7 @@ export default function ProductQuantity() {
          <button
             className="border-l font-bold text-center text-lg h-full px-4 md:py-3 text-black bg-white hover:text-white hover:bg-black"
             aria-label="plus"
-            onClick={() => qty < stock && setQty(qty + 1)}
+            onClick={() => qty < quantity && setQty(qty + 1)}
          >
             +
          </button>

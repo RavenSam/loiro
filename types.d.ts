@@ -24,31 +24,33 @@ export type CollectionTypes = {
 }
 
 export interface Product {
-    id:         string;
-    name:       string;
-    price:      number;
-    quantity:   number;
-    slug:       string;
-    type:       string;
-    variants:   Variant[];
-    categories: Categories[];
-    images:     any[];
-    thumbnail:  Thumbnail;
+   id: string
+   name: string
+   description?: string
+   price: number
+   previous_price?: number
+   quantity: number
+   slug: string
+   type: string
+   variants: Variant[]
+   categories: Categories[]
+   images: any[]
+   thumbnail: Thumbnail
 }
 
 export interface Categories {
-    Categories_id: Category;
+   Categories_id: Category
 }
 
 export interface Category {
-    name:      string;
-    id:        string;
-    slug:      string;
-    thumbnail?: Thumbnail;
+   name: string
+   id: string
+   slug: string
+   thumbnail?: Thumbnail
 }
 
 export interface Thumbnail {
-    id: string;
+   id: string
 }
 
 export interface Variant {
