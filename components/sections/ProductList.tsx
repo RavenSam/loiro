@@ -21,7 +21,7 @@ export default function ProductList({ title }: { title: string }) {
 
    return (
       <div className="styledArrow ArrowTop w-full max-w-6xl mx-auto px-4">
-         <div className="flex items-center justify-between mb-6">
+         <div className="flex items-center justify-between mb-3">
             <h2 className="section-title">{title}</h2>
 
             <Link href="/collections/products">
