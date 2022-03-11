@@ -18,7 +18,7 @@ export default function FilterGallery({ products }: PropsWithChildren<GalleryPro
 
          <motion.div layout className="popular-movies grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
             <AnimatePresence>
-               {filtered.map((item: any) => (
+               {filtered.slice(0,8).map((item: any) => (
                   <Item key={item.id} item={item} />
                ))}
             </AnimatePresence>
