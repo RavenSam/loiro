@@ -14,6 +14,11 @@ export default function ProductGallery({ product }: PropsWithChildren<ProductInf
    const [selectedImg, setSelectedImg] = useState<Thumbnail>(product.thumbnail)
    SwiperCore.use([Navigation])
 
+
+   useEffect(()=>{
+      setSelectedImg(product.thumbnail)
+   },[product.thumbnail])
+
    return (
       <>
          <div className="styledArrow mdArrow">
