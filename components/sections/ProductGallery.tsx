@@ -1,6 +1,6 @@
 import Image from "next/image"
-import React, { PropsWithChildren, useState } from "react"
-import { Product } from "types"
+import React, { PropsWithChildren, useEffect, useState } from "react"
+import { Product, Thumbnail } from "types"
 import imgSrc from "@lib/utils/imgSrc"
 
 import SwiperCore, { Navigation } from "swiper"
@@ -10,17 +10,8 @@ interface ProductInfoTypes {
    product: Product
 }
 
-const items = [
-   { id: 1, img: "/assets/p-2.png" },
-   { id: 2, img: "/assets/p-3.png" },
-   { id: 3, img: "/assets/p-2.png" },
-   { id: 4, img: "/assets/p-3.png" },
-   { id: 5, img: "/assets/p-2.png" },
-   { id: 6, img: "/assets/p-3.png" },
-]
-
 export default function ProductGallery({ product }: PropsWithChildren<ProductInfoTypes>): JSX.Element {
-   const [selectedImg, setSelectedImg] = useState(product.thumbnail)
+   const [selectedImg, setSelectedImg] = useState<Thumbnail>(product.thumbnail)
    SwiperCore.use([Navigation])
 
    return (
@@ -34,16 +25,18 @@ export default function ProductGallery({ product }: PropsWithChildren<ProductInf
                <Swiper className="py-8" grabCursor={true} navigation={true} slidesPerView="auto" spaceBetween={20}>
                   {product.images.map((item) => (
                      <SwiperSlide
-                        onClick={() => setSelectedImg(item)}
+                        onClick={() => setSelectedImg(item.image)}
                         className={`${
-                           selectedImg.id === item.id ? "scale-110 shadow-lg rounded-xl transition duration-300" : ""
+                           selectedImg.id === item.image.id
+                              ? "scale-110 shadow-lg rounded-xl transition duration-300"
+                              : ""
                         } w-28`}
-                        key={item.id}
+                        key={item.image.id}
                      >
                         <figure className={` relative rounded-xl shadow-lg overflow-hidden w-full aspect-square`}>
                            <Image
-                              src={imgSrc(item.id)}
-                              alt={item.id}
+                              src={imgSrc(item.image.id)}
+                              alt={item.image.id}
                               width={80}
                               height={80}
                               layout="responsive"

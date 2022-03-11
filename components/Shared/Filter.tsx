@@ -1,20 +1,31 @@
-import React, { useEffect } from "react"
+import React, { Dispatch, PropsWithChildren, SetStateAction, useEffect } from "react"
 import { motion } from "framer-motion"
+import { Product } from "types"
 
 const btns = [
    { label: "All", value: 0 },
-   { label: "Men", value: "men" },
-   { label: "Women", value: "women" },
+   { label: "Men", value: 1 },
+   { label: "Women", value: 2 },
 ]
 
-export default function Filter({ items, setFiltered, active, setActive }: any) {
+interface FilterPropTypes {
+   items: Product[]
+   setFiltered: Dispatch<SetStateAction<Product[]>>
+   active: number
+   setActive: Dispatch<SetStateAction<number>>
+}
+
+export default function Filter(props: PropsWithChildren<FilterPropTypes>): JSX.Element {
+   const { items, setFiltered, active, setActive } = props
+
    useEffect(() => {
       if (active === 0) {
          setFiltered(items)
          return
       }
 
-      const fitred = items.filter((item: any) => item.category.includes(active))
+      // const fitred = items.filter((item: Product) => item.category.includes(active))
+      const fitred = items.filter((item: Product) => item.categories.some((cat) => +cat.Categories_id.id === active))
 
       setFiltered(fitred)
    }, [active, items, setFiltered])

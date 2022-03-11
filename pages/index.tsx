@@ -3,7 +3,7 @@ import Head from "next/head"
 import client from "@lib/config/apollo"
 import { GET_PRODUCTS } from "@lib/gql/queries/getProducts"
 import { GET_CATEGORIES } from "@lib/gql/queries/getData"
-import {Category} from "types"
+import { Category, Product } from "types"
 
 import Collection from "@components/sections/Collection"
 import FilterGallery from "@components/sections/FilterGallery"
@@ -14,14 +14,12 @@ import ProductList from "@components/sections/ProductList"
 import ShopByCategory from "@components/sections/ShopByCategory"
 import Newsletter from "@components/Shared/Newsletter"
 
-interface HomeProppTypes {
-   categories:Category[]
+interface HomePropTypes {
+   categories: Category[]
+   products: Product[]
 }
 
-const Home: NextPage<HomeProppTypes> = ({categories}) => {
-
-
-
+const Home: NextPage<HomePropTypes> = ({ categories, products }) => {
    return (
       <>
          <Head>
@@ -38,7 +36,7 @@ const Home: NextPage<HomeProppTypes> = ({categories}) => {
          </section>
 
          <section className="mt-28">
-            <ProductList title="New Arrivals" />
+            <ProductList products={products} title="New Arrivals" />
          </section>
 
          <section className="mt-28">
@@ -46,7 +44,7 @@ const Home: NextPage<HomeProppTypes> = ({categories}) => {
          </section>
 
          <section className="mt-28">
-            <FilterGallery />
+            <FilterGallery products={products} />
          </section>
 
          <section className="mt-20">
@@ -64,15 +62,16 @@ const Home: NextPage<HomeProppTypes> = ({categories}) => {
    )
 }
 
-
-export const getStaticProps:GetStaticProps = async ()=> {
-   const res = await client.query({ query: GET_CATEGORIES });
+export const getStaticProps: GetStaticProps = async () => {
+   const { data: category } = await client.query({ query: GET_CATEGORIES })
+   const { data: products } = await client.query({ query: GET_PRODUCTS })
 
    return {
       props: {
-         categories: res.data.Categories,
+         categories: category.Categories,
+         products: products.products,
       },
-   };
+   }
 }
 
 export default Home

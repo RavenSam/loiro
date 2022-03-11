@@ -1,22 +1,17 @@
-import { useEffect, useState } from "react"
+import { PropsWithChildren, useEffect, useState } from "react"
 import Link from "next/link"
 import ProductCard from "@components/Shared/ProductCard"
+import { Product } from "types"
 
 import SwiperCore, { Navigation } from "swiper"
 import { SwiperSlide, Swiper } from "swiper/react"
 
-const products = [
-   { id: 1, name: "Women T-Shirt  ", category: ["women"], image: ["/assets/p-2.png", "/assets/p-3.png"] },
-   { id: 2, name: "Women T-Shirt  ", category: ["women"], image: ["/assets/p-2.png", "/assets/p-3.png"] },
-   { id: 11, name: "Men T-Shirt  ", category: ["men"], image: ["/assets/p-4.png", "/assets/p-5.png"] },
-   { id: 4, name: "Women T-Shirt  ", category: ["women"], image: ["/assets/p-2.png", "/assets/p-3.png"] },
-   { id: 12, name: "Men T-Shirt  ", category: ["men"], image: ["/assets/p-4.png", "/assets/p-5.png"] },
-   { id: 6, name: "Women T-Shirt  ", category: ["women"], image: ["/assets/p-2.png", "/assets/p-3.png"] },
-   { id: 19, name: "Men T-Shirt  ", category: ["men"], image: ["/assets/p-4.png", "/assets/p-5.png"] },
-   { id: 3, name: "Men T-Shirt  ", category: ["men"], image: ["/assets/p-4.png", "/assets/p-5.png"] },
-]
+interface ListPropTypes {
+   title: string
+   products: Product[]
+}
 
-export default function ProductList({ title }: { title: string }) {
+export default function ProductList({ title, products }: PropsWithChildren<ListPropTypes>): JSX.Element {
    SwiperCore.use([Navigation])
 
    return (

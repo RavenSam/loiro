@@ -6,6 +6,7 @@ export const GET_PRODUCTS = gql`
          id
          name
          price
+         previous_price
          quantity
          slug
          type
@@ -36,6 +37,7 @@ export const GET_PRODUCT_WITH_SLUG = gql`
          name
          description
          price
+         previous_price
          quantity
          slug
          type

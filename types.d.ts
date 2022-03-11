@@ -27,14 +27,14 @@ export interface Product {
    id: string
    name: string
    description?: string
-   price: number
-   previous_price?: number
+   price: string
+   previous_price: string
    quantity: number
    slug: string
    type: string
    variants: Variant[]
    categories: Categories[]
-   images: any[]
+   images: Image[]
    thumbnail: Thumbnail
 }
 
@@ -51,6 +51,10 @@ export interface Category {
 
 export interface Thumbnail {
    id: string
+}
+
+export interface Image {
+   image: Thumbnail
 }
 
 export interface Variant {

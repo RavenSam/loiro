@@ -7,9 +7,6 @@ interface ProductInfoTypes {
    product: Product
 }
 
-// const sizes = ["L", "M", "S", "XL", "XXL"]
-// const colors = ["Black", "Blue", "Olive", "Maroon", "Brown", "White", "Gray"]
-
 export default function ProductInfo({ product }: PropsWithChildren<ProductInfoTypes>): JSX.Element {
    return (
       <>
@@ -18,8 +15,8 @@ export default function ProductInfo({ product }: PropsWithChildren<ProductInfoTy
 
             <div className="flex items-center">
                <div className="flex items-center text-gray-600">
-                  {[1, 2, 3, 4, 5].map((x) => (
-                     <BsStar key={x} size={25} />
+                  {[1, 2, 3, 4, 5].map((x, i) => (
+                     <BsStar key={i} size={25} />
                   ))}
                </div>
 
@@ -27,25 +24,21 @@ export default function ProductInfo({ product }: PropsWithChildren<ProductInfoTy
             </div>
 
             <h2 className="text-lg md:text-xl lg:text-2xl font-semibold flex items-center">
-               <span className="line-through text-gray-500 mr-2 scale-75">${product.previous_price}</span>
-               <span>${product.price}</span>
+               {product.previous_price && (
+                  <span className="line-through text-gray-500 mr-2 scale-75">{product.previous_price}</span>
+               )}
+               <span>{product.price}</span>
             </h2>
             <div className="">
                <h3 className="md:text-lg uppercase font-semibold">description</h3>
-               <p className="text-gray-600 m-2 font-light">
-                  <div dangerouslySetInnerHTML={{ __html: product.description! }} />
-               </p>
+               <p className="text-gray-600 m-2 font-light">{product.description}</p>
             </div>
 
-            {product.variants.length > 0 && (
-               <>
-                  {/* SIZE */}
-                  <VariantsSize variant={product.variants} />
+            {/* SIZE */}
+            <VariantsSize variant={product.variants} />
 
-                  {/* COLOR */}
-                  <VariantsColor variant={product.variants} />
-               </>
-            )}
+            {/* COLOR */}
+            <VariantsColor variant={product.variants} />
 
             <div className="pb-4 flex items-center flex-wrap">
                <div className="min-w-[130px]">
@@ -59,13 +52,21 @@ export default function ProductInfo({ product }: PropsWithChildren<ProductInfoTy
 }
 
 const VariantsColor = ({ variant }: { variant: Variant[] }) => {
-   const [selectedColor, setSelectedColor] = useState(variant[0].color)
+   const colors = variant
+      .map((el) => el.color)
+      .filter((el) => el !== undefined)
+      .reduce((a: string[], b: string) => {
+         if (a.indexOf(b) < 0) a.push(b)
+         return a
+      }, [])
+
+   const [selectedColor, setSelectedColor] = useState(colors[0])
 
    return (
       <div className="">
          <h3 className="md:text-lg uppercase font-semibold">Color</h3>
          <div className="">
-            {variant.map(({ color }) => (
+            {colors.map((color) => (
                <button
                   key={color}
                   onClick={() => setSelectedColor(color)}
@@ -85,13 +86,21 @@ const VariantsColor = ({ variant }: { variant: Variant[] }) => {
 }
 
 const VariantsSize = ({ variant }: { variant: Variant[] }) => {
-   const [selectedSize, setSelectedSize] = useState("M")
+   const sizes = variant
+      .map((el) => el.size)
+      .filter((el) => el !== undefined)
+      .reduce((a: string[], b: string) => {
+         if (a.indexOf(b) < 0) a.push(b)
+         return a
+      }, [])
+
+   const [selectedSize, setSelectedSize] = useState(sizes[0])
 
    return (
       <div className="">
          <h3 className="md:text-lg uppercase font-semibold">Size</h3>
          <div className="">
-            {variant.map(({ size }) => (
+            {sizes.map((size) => (
                <button
                   key={size}
                   onClick={() => setSelectedSize(size)}

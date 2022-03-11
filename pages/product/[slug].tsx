@@ -3,7 +3,7 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { Product } from "types"
 import client from "@lib/config/apollo"
-import { GET_PRODUCT_WITH_SLUG, GET_PRODUCTS_SLUG } from "@lib/gql/queries/getProducts"
+import { GET_PRODUCT_WITH_SLUG, GET_PRODUCTS_SLUG, GET_PRODUCTS } from "@lib/gql/queries/getProducts"
 
 import ProductDetails from "@components/sections/ProductDetails"
 import ProductGallery from "@components/sections/ProductGallery"
@@ -13,9 +13,10 @@ import Policy from "@components/sections/Policy"
 
 interface ProductPropTypes {
    product: Product
+   similarProducts: Product[]
 }
 
-const Product: NextPage<ProductPropTypes> = ({ product }) => {
+const Product: NextPage<ProductPropTypes> = ({ product, similarProducts }) => {
    // handcrafted-fresh-gloves
    // unbranded-wooden-sausages
 
@@ -51,7 +52,7 @@ const Product: NextPage<ProductPropTypes> = ({ product }) => {
          </section>
 
          <section className="mt-28">
-            <ProductList title="Similar Products" />
+            <ProductList products={similarProducts} title="Similar Products" />
          </section>
 
          <section className="mt-20">
@@ -63,6 +64,7 @@ const Product: NextPage<ProductPropTypes> = ({ product }) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
    const { data } = await client.query({ query: GET_PRODUCT_WITH_SLUG, variables: { slug: params?.slug } })
+   const { data: similarProducts } = await client.query({ query: GET_PRODUCTS })
 
    if (!data.products.length) {
       return {
@@ -73,6 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
    return {
       props: {
          product: data.products[0],
+         similarProducts: similarProducts.products,
       },
    }
 }
