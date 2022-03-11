@@ -37,7 +37,7 @@ const Search: NextPage = () => {
                ) : null}
 
                <section className="col-span-9 px-4 relative">
-                  <SearchResults />
+                  {/*<SearchResults />*/}
                </section>
             </div>
          </div>
