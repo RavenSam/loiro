@@ -1,17 +1,37 @@
-import ProductQuantity from "@components/Shared/ProductQuantity"
-import React, { PropsWithChildren, useState } from "react"
-import { Product, Variant } from "types"
-import { BsStar } from "react-icons/bs"
+import ProductQuantity from "@components/Shared/ProductQuantity";
+import React, { PropsWithChildren, useState } from "react";
+import { Product, Variant } from "types";
+import { BsStar } from "react-icons/bs";
 
 interface ProductInfoTypes {
-   product: Product
+   product: Product;
 }
 
-export default function ProductInfo({ product }: PropsWithChildren<ProductInfoTypes>): JSX.Element {
+export default function ProductInfo({
+   product,
+}: PropsWithChildren<ProductInfoTypes>): JSX.Element {
+   const colors:string[] = product.variants
+      .map((el) => el.color)
+      .filter((el) => el !== undefined)
+      .reduce((a: string[], b: string) => {
+         if (a.indexOf(b) < 0) a.push(b);
+         return a;
+      }, []);
+
+   const sizes:string[] = product.variants
+      .map((el) => el.size)
+      .filter((el) => el !== undefined)
+      .reduce((a: string[], b: string) => {
+         if (a.indexOf(b) < 0) a.push(b);
+         return a;
+      }, []);
+
    return (
       <>
          <div className="space-y-6">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">{product.name}</h1>
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+               {product.name}
+            </h1>
 
             <div className="flex items-center">
                <div className="flex items-center text-gray-600">
@@ -25,42 +45,42 @@ export default function ProductInfo({ product }: PropsWithChildren<ProductInfoTy
 
             <h2 className="text-lg md:text-xl lg:text-2xl font-semibold flex items-center">
                {product.previous_price && (
-                  <span className="line-through text-gray-500 mr-2 scale-75">{product.previous_price}</span>
+                  <span className="line-through text-gray-500 mr-2 scale-75">
+                     {product.previous_price}
+                  </span>
                )}
                <span>{product.price}</span>
             </h2>
             <div className="">
-               <h3 className="md:text-lg uppercase font-semibold">description</h3>
-               <p className="text-gray-600 m-2 font-light">{product.description}</p>
+               <h3 className="md:text-lg uppercase font-semibold">
+                  description
+               </h3>
+               <p className="text-gray-600 m-2 font-light">
+                  {product.description}
+               </p>
             </div>
 
             {/* SIZE */}
-            <VariantsSize variant={product.variants} />
+            {sizes.length > 0 && <VariantsSize sizes={sizes} />}
 
             {/* COLOR */}
-            <VariantsColor variant={product.variants} />
+            {colors.length > 0 && <VariantsColor colors={colors} />}
 
             <div className="pb-4 flex items-center flex-wrap">
                <div className="min-w-[130px]">
                   <ProductQuantity quantity={product.quantity} />
                </div>
-               <button className="btn-black justify-center md:py-3 flex-1 m-1">Add To Card</button>
+               <button className="btn-black justify-center md:py-3 flex-1 m-1">
+                  Add To Card
+               </button>
             </div>
          </div>
       </>
-   )
+   );
 }
 
-const VariantsColor = ({ variant }: { variant: Variant[] }) => {
-   const colors = variant
-      .map((el) => el.color)
-      .filter((el) => el !== undefined)
-      .reduce((a: string[], b: string) => {
-         if (a.indexOf(b) < 0) a.push(b)
-         return a
-      }, [])
-
-   const [selectedColor, setSelectedColor] = useState(colors[0])
+const VariantsColor = ({ colors }: { colors: string[] }) => {
+   const [selectedColor, setSelectedColor] = useState(colors[0]);
 
    return (
       <div className="">
@@ -72,7 +92,8 @@ const VariantsColor = ({ variant }: { variant: Variant[] }) => {
                   onClick={() => setSelectedColor(color)}
                   style={{
                      backgroundColor: color,
-                     outlineColor: selectedColor === color ? color : "transparent",
+                     outlineColor:
+                        selectedColor === color ? color : "transparent",
                   }}
                   className={`${
                      selectedColor === color ? "w-7 h-7" : "w-8 h-8"
@@ -82,19 +103,11 @@ const VariantsColor = ({ variant }: { variant: Variant[] }) => {
             ))}
          </div>
       </div>
-   )
-}
+   );
+};
 
-const VariantsSize = ({ variant }: { variant: Variant[] }) => {
-   const sizes = variant
-      .map((el) => el.size)
-      .filter((el) => el !== undefined)
-      .reduce((a: string[], b: string) => {
-         if (a.indexOf(b) < 0) a.push(b)
-         return a
-      }, [])
-
-   const [selectedSize, setSelectedSize] = useState(sizes[0])
+const VariantsSize = ({ sizes }: { sizes: string[] }) => {
+   const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
    return (
       <div className="">
@@ -115,5 +128,5 @@ const VariantsSize = ({ variant }: { variant: Variant[] }) => {
             ))}
          </div>
       </div>
-   )
-}
+   );
+};
