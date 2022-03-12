@@ -36,6 +36,37 @@ export const GET_PRODUCT_WITH_SLUG = gql`
          id
          name
          description
+         overview
+         price
+         previous_price
+         quantity
+         slug
+         type
+         variants
+         categories {
+            Categories_id {
+               name
+               id
+               slug
+            }
+         }
+         images {
+            image {
+               id
+            }
+         }
+         thumbnail {
+            id
+         }
+      }
+   }
+`
+
+export const GET_SEARCH_PRODUCTS = gql`
+   query MyProducts($search: String = "") {
+      products(filter: { status: { _eq: "published" } }, search: $search) {
+         id
+         name
          price
          previous_price
          quantity

@@ -1,7 +1,18 @@
 import Image from "next/image"
-import React from "react"
+import React, { Dispatch, PropsWithChildren, SetStateAction, useState } from "react"
 
-export default function SearchHero() {
+interface SearchType {
+   setSearchVariable: Dispatch<SetStateAction<string>>
+}
+
+export default function SearchHero({ setSearchVariable }: PropsWithChildren<SearchType>): JSX.Element {
+   const [searchInput, setSearchInput] = useState("")
+
+   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+      setSearchVariable(searchInput)
+   }
+
    return (
       <div className="w-full relative max-h-[50vh] overflow-hidden">
          <figure className="w-full h-full">
@@ -20,8 +31,10 @@ export default function SearchHero() {
          <div className="absolute inset-0 flex items-center justify-center px-4">
             <div className="w-full max-w-lg rounded-lg p-4 bg-white text-white bg-opacity-20 shadow-xl space-y-4">
                <h1 className="text-lg md:text-3xl font-bold text-center">Search</h1>
-               <form className="flex items-center space-x-1">
+               <form onSubmit={handleSubmit} className="flex items-center space-x-1">
                   <input
+                     value={searchInput}
+                     onChange={(e) => setSearchInput(e.target.value)}
                      placeholder="Search..."
                      type="text"
                      className="w-full bg-white bg-opacity-30 py-2 px-5 rounded-lg outline-none focus:outline focus:outline-white"

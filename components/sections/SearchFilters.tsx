@@ -9,13 +9,12 @@ import {
 } from "@chakra-ui/react"
 import { changeState } from "@lib/utils/func"
 import { useRouter } from "next/router"
-import React, { useState } from "react"
+import React, { PropsWithChildren, useState } from "react"
 import { BsSliders } from "react-icons/bs"
 import { HiX } from "react-icons/hi"
+import { Category } from "types"
 
 type filterTypes = "category" | "price" | "color"
-
-const categories = ["women", "men", "watch", "sports", "sunglass", "bags", "shoes"]
 
 const prices = [
    "Under $50",
@@ -30,7 +29,11 @@ const prices = [
 
 const colors = ["Black", "Blue", "Olive", "Maroon", "Brown", "White", "Gray"]
 
-export default function SearchFilters() {
+interface FiltersTypes {
+   categories: Category[]
+}
+
+export default function SearchFilters({ categories }: PropsWithChildren<FiltersTypes>): JSX.Element {
    const [categoryFilters, setCategoryFilters] = useState<string[]>([])
    const [priceFilters, setPriceFilters] = useState<string[]>([])
    const [colorFilters, setColorFilters] = useState<string[]>([])
@@ -93,10 +96,10 @@ export default function SearchFilters() {
 
                <ul className="space-y-2">
                   {categories.map((cat) => (
-                     <li key={cat} className="flex items-center space-x-2 text-gray-600 hover:text-black">
-                        <input type="checkbox" id={cat} value={cat} onClick={handleFiters("category")} />
-                        <label htmlFor={cat} className="capitalize ">
-                           {cat}
+                     <li key={cat.id} className="flex items-center space-x-2 text-gray-600 hover:text-black">
+                        <input type="checkbox" id={cat.id} value={cat.id} onClick={handleFiters("category")} />
+                        <label htmlFor={cat.id} className="capitalize ">
+                           {cat.name}
                         </label>
                      </li>
                   ))}
@@ -141,7 +144,7 @@ export default function SearchFilters() {
    )
 }
 
-export const FiltersDrawer = () => {
+export const FiltersDrawer = ({ categories }: PropsWithChildren<FiltersTypes>): JSX.Element => {
    const { isOpen, onOpen, onClose } = useDisclosure()
 
    return (
@@ -160,7 +163,7 @@ export const FiltersDrawer = () => {
                <DrawerHeader pb={9}></DrawerHeader>
 
                <DrawerBody>
-                  <SearchFilters />
+                  <SearchFilters categories={categories} />
                </DrawerBody>
             </DrawerContent>
          </Drawer>

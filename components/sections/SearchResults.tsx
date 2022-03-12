@@ -1,26 +1,27 @@
 import { BsChevronExpand } from "react-icons/bs"
 import { FiltersDrawer } from "./SearchFilters"
 import { AnimatePresence, motion } from "framer-motion"
+import { PropsWithChildren } from "react"
+import { Category, Product } from "types"
+
 import ProductCard from "@components/Shared/ProductCard"
 import SortBy from "@components/Shared/SortBy"
 
-const items = [
-   { id: 1, name: "Women T-Shirt  ", category: ["women"], image: ["/assets/p-2.png", "/assets/p-3.png"] },
-   { id: 3, name: "Men T-Shirt  ", category: ["men"], image: ["/assets/p-4.png", "/assets/p-5.png"] },
-   { id: 2, name: "Women T-Shirt  ", category: ["women"], image: ["/assets/p-2.png", "/assets/p-3.png"] },
-   { id: 11, name: "Men T-Shirt  ", category: ["men"], image: ["/assets/p-4.png", "/assets/p-5.png"] },
-   { id: 4, name: "Women T-Shirt  ", category: ["women"], image: ["/assets/p-2.png", "/assets/p-3.png"] },
-   { id: 12, name: "Men T-Shirt  ", category: ["men"], image: ["/assets/p-4.png", "/assets/p-5.png"] },
-   { id: 6, name: "Women T-Shirt  ", category: ["women"], image: ["/assets/p-2.png", "/assets/p-3.png"] },
-   { id: 19, name: "Men T-Shirt  ", category: ["men"], image: ["/assets/p-4.png", "/assets/p-5.png"] },
-]
+interface ResultsTypes {
+   categories: Category[]
+   products: Product[]
+}
 
-export default function SearchResults() {
+export default function SearchResults({ categories, products }: PropsWithChildren<ResultsTypes>): JSX.Element {
+   if (products.length === 0) {
+      return <p className="text-center px-4 py-6 text-gray-600 font-semibold">No Results Found</p>
+   }
+
    return (
       <div>
          <div className="flex items-center justify-between mb-8">
             <div className="md:hidden">
-               <FiltersDrawer />
+               <FiltersDrawer categories={categories} />
             </div>
 
             <h2 className="hidden md:block text-xl md:text-2xl text-black font-medium">All</h2>
@@ -29,13 +30,13 @@ export default function SearchResults() {
          </div>
 
          <div className="">
-            <motion.div layout className="popular-movies grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
+            <div className="popular-movies grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
                <AnimatePresence>
-                  {items.map((item: any) => (
+                  {products.map((item) => (
                      <Item key={item.id} item={item} />
                   ))}
                </AnimatePresence>
-            </motion.div>
+            </div>
          </div>
 
          <div className="">
